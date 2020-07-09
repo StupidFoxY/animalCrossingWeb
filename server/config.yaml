@@ -1,0 +1,19 @@
+http-server:
+  host: 127.0.0.1
+  port: 6789
+  router:
+    - /
+mongodb:
+  username: animalcrossing
+  password: animalcrossing
+  host: 127.0.0.1
+  port: 27017
+  protocal: mongodb
+  database: animal_crossing
+  collections:
+    - animal
+  expire:
+    status: enabled
+    rule: expire
+    prefix: tmp_
+    seconds: 3600 # 1h
