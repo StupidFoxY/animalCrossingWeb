@@ -11,7 +11,12 @@ class Animal(object):
         global animalDB
         animalDB = animal
 
+    async def get_animal_count(request):
+        x = await MongoDB.find(animalDB)
+        lenth = len(x)
+        return web.json_response(lenth)
+
     async def get_animal_list(request):
-        x = await MongoDB.find_one(animalDB)
+        x = await MongoDB.find(animalDB)
         # return web.Response(text='animal_list')
         return web.json_response(x)

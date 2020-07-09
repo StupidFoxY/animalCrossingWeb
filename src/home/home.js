@@ -3,13 +3,19 @@ import axios from 'axios';
 import libData from './../assets/data/lib.json';
 import './home.css';
 
+import { Progress } from 'antd';
+
 function LibList(props) {
   const libList = props.libList;
   const listItems = libList.map((libitem) => {
     return (
       <li className="lib-list-item" key={libitem.key}>
         <img src={require(`./../assets/images/${libitem.img}`)} className="lib-image"/>
-        <span className="lib-span">{libitem.label}</span>
+        <div className="lib-label-div">
+          <span className="lib-label-span">{libitem.label}</span>
+          <span>{libitem.userCount}/{libitem.count}</span>
+          <Progress percent={libitem.userCount/libitem.count} size="small" showInfo={false}/>
+        </div>
       </li>
     )
   });
@@ -21,14 +27,23 @@ function LibList(props) {
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      libData:libData
+    }
   }
 
   componentWillMount() {
-    axios.get('/animal/animal_list')
-    .then(function (response) {
-      console.log(response);
+    axios.get('/animal_count')
+    .then((response) => {
+      console.log('/animal_count>>>',response);
+      this.state.libData.forEach((libitem) => {
+        if(libitem.key == 'animal'){
+          libitem.count = response.data;
+        }
+      })
+      this.setState({ libData: this.state.libData });
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
     })
   }
@@ -41,7 +56,7 @@ class Home extends React.Component {
         </div>
         <div className="lib">
           <div className="birthday"></div>
-          <LibList libList={libData}/>
+          <LibList libList={this.state.libData}/>
         </div>
       </div>
     );

@@ -32,7 +32,8 @@ cors = aiohttp_cors.setup(app,defaults={
     })
 
 # animal
-cors.add(app.router.add_get('/animal/animal_list', Animal.get_animal_list))
+cors.add(app.router.add_get('/animal_list', Animal.get_animal_list))
+cors.add(app.router.add_get('/animal_count', Animal.get_animal_count))
 
 # run server
 if __name__ == '__main__':

@@ -45,6 +45,7 @@ class MongoDB(object):
         query = kwargs.get('query',None)
         projection = kwargs.get('projection',None)
         document = await collection.find_one(query,projection)
+        document['_id'] = str(document['_id'])
         return document;
 
     async def find(collection, **kwargs):
@@ -52,6 +53,7 @@ class MongoDB(object):
         projection = kwargs.get('projection',None)
         documents = []
         async for document in collection.find(query,projection):
+            document['_id'] = str(document['_id'])
             documents.append(document)
 
         return documents;

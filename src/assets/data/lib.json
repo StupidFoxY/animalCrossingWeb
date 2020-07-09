@@ -3,84 +3,84 @@
     "label": "村民",
     "key": "animal",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "鱼类",
     "key": "fish",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "昆虫",
     "key": "insect",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "海洋生物",
     "key": "sealife",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "化石",
     "key": "fossil",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "艺术品",
     "key": "art",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "唱片",
     "key": "cd",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "反应",
     "key": "action",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "家具",
     "key": "furniture",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "DIY",
     "key": "diy",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "NPC",
     "key": "npc",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   },
   {
     "label": "服饰",
     "key": "clothes",
     "img": "logo.svg",
-    "count": 0,
+    "count": 1,
     "userCount": 0
   }
 ]
