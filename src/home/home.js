@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import libData from './../assets/data/lib.json';
 import './home.css';
+import { Link } from "react-router-dom";
 
 import { Progress } from 'antd';
 
@@ -12,7 +13,7 @@ function LibList(props) {
       <li className="lib-list-item" key={libitem.key}>
         <img src={require(`./../assets/images/${libitem.img}`)} className="lib-image"/>
         <div className="lib-label-div">
-          <span className="lib-label-span">{libitem.label}</span>
+          <Link to={`/${libitem.key}`} className="lib-label-span">{libitem.label}</Link>
           <span>{libitem.userCount}/{libitem.count}</span>
           <Progress percent={libitem.userCount/libitem.count} size="small" showInfo={false}/>
         </div>
@@ -37,7 +38,7 @@ class Home extends React.Component {
     .then((response) => {
       console.log('/animal_count>>>',response);
       this.state.libData.forEach((libitem) => {
-        if(libitem.key == 'animal'){
+        if(libitem.key === 'animal'){
           libitem.count = response.data;
         }
       })
@@ -50,14 +51,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="header">
-
-        </div>
-        <div className="lib">
-          <div className="birthday"></div>
-          <LibList libList={this.state.libData}/>
-        </div>
+      <div className="lib">
+        <div className="birthday"></div>
+        <LibList libList={this.state.libData}/>
       </div>
     );
   }

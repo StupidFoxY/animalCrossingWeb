@@ -2,18 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './home/home';
+import Animal from './animal/animal';
 import './index.css';
 import 'antd/dist/antd.css';
 
 axios.defaults.baseURL = 'http://127.0.0.1:6789';
 
 ReactDOM.render((
-  <BrowserRouter>
-    <Route path="/" component={Home}/>
-  </BrowserRouter>
+  <div>
+    <div className="header">
+    </div>
+    <div className="content">
+      <BrowserRouter>
+        <Switch>
+          <Route path="/animal" component={Animal}/>
+          <Route path="/" component={Home}/>
+        </Switch>
+      </BrowserRouter>
+    </div>
+  </div>
 ), document.getElementById('root'))
 
 
